@@ -22,21 +22,21 @@ DEFINE main
         SET NET110 meeting time to 11:00 a.m.
         SET COM241 meeting time to 1:00 p.m.
 
-    ASK user to enter a course number
-    REMOVE extra spaces before and after course number
-    CONVERT course number to uppercase
-
-    WHILE course number is not found in room numbers dictionary
-        DISPLAY error message that course number was not found
+    WHILE true
         ASK user to enter a course number
         REMOVE extra spaces before and after course number
         CONVERT course number to uppercase
-    END WHILE
 
-    DISPLAY course number
-    DISPLAY room number from room numbers dictionary
-    DISPLAY instructor from instructors dictionary
-    DISPLAY meeting time from meeting times dictionary
+        IF course number is found in room numbers dictionary
+            DISPLAY course number
+            DISPLAY room number from room numbers dictionary
+            DISPLAY instructor from instructors dictionary
+            DISPLAY meeting time from meeting times dictionary
+            STOP loop
+        ELSE
+            DISPLAY error message that course number was not found
+        END IF
+    END WHILE
 END DEFINE
 
 CALL main
