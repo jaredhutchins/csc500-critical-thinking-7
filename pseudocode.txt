@@ -1,0 +1,44 @@
+START
+
+DEFINE main
+    CREATE dictionary for room numbers
+        SET CSC101 room to 3004
+        SET CSC102 room to 4501
+        SET CSC103 room to 6755
+        SET NET110 room to 1244
+        SET COM241 room to 1411
+
+    CREATE dictionary for instructors
+        SET CSC101 instructor to Haynes
+        SET CSC102 instructor to Alvarado
+        SET CSC103 instructor to Rich
+        SET NET110 instructor to Burke
+        SET COM241 instructor to Lee
+
+    CREATE dictionary for meeting times
+        SET CSC101 meeting time to 8:00 a.m.
+        SET CSC102 meeting time to 9:00 a.m.
+        SET CSC103 meeting time to 10:00 a.m.
+        SET NET110 meeting time to 11:00 a.m.
+        SET COM241 meeting time to 1:00 p.m.
+
+    ASK user to enter a course number
+    REMOVE extra spaces before and after course number
+    CONVERT course number to uppercase
+
+    WHILE course number is not found in room numbers dictionary
+        DISPLAY error message that course number was not found
+        ASK user to enter a course number
+        REMOVE extra spaces before and after course number
+        CONVERT course number to uppercase
+    END WHILE
+
+    DISPLAY course number
+    DISPLAY room number from room numbers dictionary
+    DISPLAY instructor from instructors dictionary
+    DISPLAY meeting time from meeting times dictionary
+END DEFINE
+
+CALL main
+
+END
